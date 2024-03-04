@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #a5b88a;
+    }
+    #container {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        top: 200px;
+    }
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    input[type="number"], select, button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <h2>Temperature Converter</h2>
+    <input type="number" id="inputDegree" placeholder="Enter degree">
+    <select id="convertType">
+        <option value="celsius">Celsius to Fahrenheit</option>
+        <option value="fahrenheit">Fahrenheit to Celsius</option>
+    </select>
+    <br><br>
+    <button onclick="convert()">Convert</button>
+    <br><br>
+    <div id="result"></div>
+</div>
+
+<script>
+    function convert() {
+        var inputDegree = parseFloat(document.getElementById('inputDegree').value);
+        var convertType = document.getElementById('convertType').value;
+        var resultElement = document.getElementById('result');
+        var result;
+
+        if (convertType === 'celsius') {
+            result = (inputDegree * 9/5) + 32;
+            resultElement.innerHTML = inputDegree + " Celsius is " + result + " Fahrenheit";
+        } else {
+            result = (inputDegree - 32) * 5/9;
+            resultElement.innerHTML = inputDegree + " Fahrenheit is " + result + " Celsius";
+        }
+    }
+</script>
+
+</body>
+</html>
